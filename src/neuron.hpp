@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <functional>
+#include <optional>
 
 namespace ann
 {
@@ -19,7 +20,8 @@ namespace ann
             Function derivative;
         };
 
-        Neuron(std::size_t num_outputs, std::size_t index, Activation activation);
+        Neuron(std::size_t num_outputs, std::size_t index,
+               std::optional<Activation> activation = std::nullopt);
 
         auto set_output(double value) -> void
         {
@@ -39,7 +41,7 @@ namespace ann
         auto feed_forward(const std::vector<Neuron>& prev_layer) -> void;
 
     private:
-        Activation activation_;
+        std::optional<Activation> activation_;
         std::size_t index_;
 
         double output_value_{0.0};
