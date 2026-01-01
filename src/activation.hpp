@@ -38,4 +38,15 @@ namespace ann::activation
         return 1.0 - (x * x);
     }
 
+    // Rectified linear unit function
+    [[nodiscard]] constexpr auto relu(double x) -> double
+    {
+        return x > 0.0 ? x : 0.0;
+    }
+
+    [[nodiscard]] constexpr auto relu_derivative(double output) -> double
+    {
+        return output > 0.0 ? 1.0 : 0.0;
+    }
+
 } // namespace ann::activation
