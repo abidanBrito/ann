@@ -1,6 +1,7 @@
 set(SOURCE_FILES
   main.cpp
   neuron.cpp
+  network.cpp
 )
 
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
