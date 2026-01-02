@@ -1,10 +1,7 @@
-set(SOURCE_FILES
-  main.cpp
-  neuron.cpp
-  network.cpp
-)
+add_executable(ann_demo main.cpp)
 
-add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
-set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
+target_link_libraries(ann_demo PRIVATE ann_core)
+
+set_target_properties(ann_demo PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin"
 )

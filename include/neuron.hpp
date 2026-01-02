@@ -8,6 +8,7 @@
 
 namespace ann
 {
+
     struct Activation
     {
         using Function = std::function<double(double)>;
