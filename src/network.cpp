@@ -124,9 +124,9 @@ namespace ann
             auto& hidden_layer = layers_[layer_idx];
             auto& next_layer = layers_[layer_idx + 1];
 
-            for (auto& neuron : hidden_layer)
+            for (std::size_t i{0}; i < hidden_layer.size() - 1; ++i)
             {
-                neuron.compute_hidden_gradient(next_layer);
+                hidden_layer[i].compute_hidden_gradient(next_layer);
             }
         }
     }
