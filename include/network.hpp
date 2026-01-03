@@ -31,6 +31,7 @@ namespace ann
         auto feed_forward(const std::vector<double>& inputs) -> void;
         auto compute_loss(const std::vector<double>& targets) -> double;
         auto back_propagate() -> void;
+        auto step(double learning_rate = 0.01, double momentum = 0.0) -> void;
 
     private:
         std::vector<std::vector<Neuron>> layers_;

@@ -131,4 +131,17 @@ namespace ann
         }
     }
 
+    auto Network::step(double learning_rate, double momentum) -> void
+    {
+        for (std::size_t layer_idx{layers_.size() - 1}; layer_idx > 0; --layer_idx)
+        {
+            auto& current_layer = layers_[layer_idx];
+            auto& prev_layer = layers_[layer_idx - 1];
+
+            for (std::size_t i = 0; i < current_layer.size() - 1; ++i)
+            {
+                current_layer[i].update_incoming_weights(prev_layer, learning_rate, momentum);
+            }
+        }
+    }
 } // namespace ann
