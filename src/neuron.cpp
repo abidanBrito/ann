@@ -64,4 +64,18 @@ namespace ann
         gradient_ = dow * activation_->derivative(output_value_);
     }
 
+    auto Neuron::update_incoming_weights(std::vector<Neuron>& prev_layer, double learning_rate,
+                                         double momentum) const -> void
+    {
+        for (auto& neuron : prev_layer)
+        {
+            auto& connection = neuron.connections_[index_];
+            const double new_delta_weight = (learning_rate * gradient_ * neuron.get_output())
+                                            + (momentum * connection.delta_weight);
+
+            connection.delta_weight = new_delta_weight;
+            connection.weight += new_delta_weight;
+        }
+    }
+
 } // namespace ann
