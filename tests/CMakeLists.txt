@@ -1,6 +1,7 @@
 add_executable(ann_tests
   neuron_test.cpp
   network_test.cpp
+  activation_test.cpp
 )
 
 target_link_libraries(ann_tests PRIVATE
