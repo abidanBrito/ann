@@ -42,6 +42,39 @@ TEST(NeuronTest, BiasNeuronOutputIsOne)
     EXPECT_DOUBLE_EQ(bias.get_output(), 1.0);
 }
 
+TEST(NeuronTest, GradientCanBeSetAndRetrieved)
+{
+    Neuron neuron(0, 0);
+    neuron.set_gradient(0.15);
+
+    EXPECT_DOUBLE_EQ(neuron.get_gradient(), 0.15);
+}
+
+TEST(NeuronTest, NeuronHasCorrectNumberOfConnections)
+{
+    Neuron neuron(10, 0);
+
+    EXPECT_EQ(neuron.get_connections().size(), 10);
+}
+
+TEST(NeuronTest, ConnectionsAreRandomlyInitialized)
+{
+    Neuron neuron1(10, 0);
+    Neuron neuron2(10, 0);
+
+    bool has_different_weight{false};
+    for (std::size_t i{0}; i < 10; ++i)
+    {
+        if (neuron1.get_connections()[i].weight != neuron2.get_connections()[i].weight)
+        {
+            has_different_weight = true;
+            break;
+        }
+    }
+
+    EXPECT_TRUE(has_different_weight);
+}
+
 TEST(NeuronTest, SingleNeuronForwardPassWithLinearActivation)
 {
     std::vector<Neuron> inputs;
@@ -54,6 +87,6 @@ TEST(NeuronTest, SingleNeuronForwardPassWithLinearActivation)
     Neuron output(0, 0, linear_activation);
     output.feed_forward(inputs);
 
-    // NOTE(abi): output should have computed something since weights are random.
+    // NOTE(abi): output should be non-zero since weights are random.
     EXPECT_NE(output.get_output(), 0.0);
 }
