@@ -74,7 +74,7 @@ namespace ann
                                             + (momentum * connection.delta_weight);
 
             connection.delta_weight = new_delta_weight;
-            connection.weight += new_delta_weight;
+            connection.weight -= new_delta_weight;
         }
     }
 
