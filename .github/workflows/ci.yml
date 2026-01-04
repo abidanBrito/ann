@@ -31,6 +31,13 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y cmake ninja-build
+        
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+        sudo apt-get update
+        sudo apt-get install -y gcc-14 g++-14
+        
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 100
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 100
 
     - name: Install dependencies (macOS)
       if: runner.os == 'macOS'
@@ -55,5 +62,4 @@ jobs:
       run: cmake --build --preset ${{ matrix.preset }}
 
     - name: Run tests
-      working-directory: build
       run: ctest --preset ${{ matrix.preset }}
