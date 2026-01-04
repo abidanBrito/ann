@@ -12,7 +12,13 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
-        build_type: [Debug, Release]
+        preset: [clang-debug, clang-release, gcc-debug, gcc-release]
+        exclude:
+          - os: macos-latest
+            preset: gcc-debug
+
+          - os: macos-latest
+            preset: gcc-release        
 
     runs-on: ${{ matrix.os }}
 
@@ -43,18 +49,11 @@ jobs:
         echo "CXX=clang++" >> $GITHUB_ENV
 
     - name: Configure CMake
-      run: |
-        cmake -B build \
-          -G Ninja \
-          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+      run: cmake --preset ${{ matrix.preset }}
 
     - name: Build
-      run: cmake --build build
+      run: cmake --build --preset ${{ matrix.preset }}
 
     - name: Run tests
       working-directory: build
-      run: ctest --output-on-failure
-
-    # - name: Run demo
-    #   if: matrix.build_type == 'Release'
-    #   run: ./bin/axon_demo
+      run: ctest --preset ${{ matrix.preset }}
