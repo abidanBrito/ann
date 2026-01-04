@@ -6,7 +6,7 @@ add_executable(axon_tests
 )
 
 target_link_libraries(axon_tests PRIVATE
-  axon_core
+  axon::core
   GTest::gtest_main
 )
 
