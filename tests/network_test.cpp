@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 
-using namespace ann;
+using namespace axon;
 
 class NetworkTest : public ::testing::Test
 {

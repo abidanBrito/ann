@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(
-  ann
+  axon
   VERSION 0.0.1
-  DESCRIPTION "Feed-forward artificial neural network from scratch"
-  HOMEPAGE_URL "https://github.com/abidanBrito/ann"
+  DESCRIPTION "Lightweight deep learning framework from first principles"
+  HOMEPAGE_URL "https://github.com/abidanBrito/axon"
   LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
@@ -24,12 +24,12 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Static library
-add_library(ann_core
+add_library(axon_core
   src/neuron.cpp
   src/network.cpp
 )
 
-target_include_directories(ann_core PUBLIC
+target_include_directories(axon_core PUBLIC
   ${CMAKE_SOURCE_DIR}/include
 )
 

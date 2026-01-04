@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ann
+namespace axon
 {
 
     struct Connection
@@ -16,4 +16,4 @@ namespace ann
         }
     };
 
-} // namespace ann
+} // namespace axon

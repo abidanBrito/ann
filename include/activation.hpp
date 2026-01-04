@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-namespace ann::activation
+namespace axon::activation
 {
 
     // Identity function
@@ -49,4 +49,4 @@ namespace ann::activation
         return output > 0.0 ? 1.0 : 0.0;
     }
 
-} // namespace ann::activation
+} // namespace axon::activation

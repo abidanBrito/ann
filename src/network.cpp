@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-namespace ann
+namespace axon
 {
     constexpr double bias_constant{1.0};
 
@@ -144,4 +144,4 @@ namespace ann
             }
         }
     }
-} // namespace ann
+} // namespace axon

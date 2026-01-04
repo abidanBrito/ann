@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ann::criterion
+namespace axon::criterion
 {
 
     [[nodiscard]] inline auto mse(double target, double output) -> double
@@ -14,4 +14,4 @@ namespace ann::criterion
         return output - target;
     }
 
-} // namespace ann::criterion
+} // namespace axon::criterion

@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-using namespace ann::criterion;
+using namespace axon::criterion;
 
 TEST(CriterionTest, MSEIsSymmetric)
 {

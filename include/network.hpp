@@ -4,7 +4,7 @@
 
 #include <vector>
 
-namespace ann
+namespace axon
 {
 
     struct Criterion
@@ -41,4 +41,4 @@ namespace ann
         double error_{0.0};
     };
 
-} // namespace ann
+} // namespace axon

@@ -6,7 +6,7 @@
 #include <functional>
 #include <optional>
 
-namespace ann
+namespace axon
 {
 
     struct Activation
@@ -61,4 +61,4 @@ namespace ann
         std::size_t index_;
     };
 
-} // namespace ann
+} // namespace axon

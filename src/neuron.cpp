@@ -3,7 +3,7 @@
 #include <random>
 #include <stdexcept>
 
-namespace ann
+namespace axon
 {
 
     namespace
@@ -78,4 +78,4 @@ namespace ann
         }
     }
 
-} // namespace ann
+} // namespace axon

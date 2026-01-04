@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-using namespace ann;
+using namespace axon;
 
 namespace
 {

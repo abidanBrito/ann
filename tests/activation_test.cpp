@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include <cmath>
 
-using namespace ann::activation;
+using namespace axon::activation;
 
 TEST(ActivationTest, LinearReturnsIdenticalInput)
 {

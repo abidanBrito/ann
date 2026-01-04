@@ -1,7 +1,7 @@
-add_executable(ann_demo main.cpp)
+add_executable(axon_demo main.cpp)
 
-target_link_libraries(ann_demo PRIVATE ann_core)
+target_link_libraries(axon_demo PRIVATE axon_core)
 
-set_target_properties(ann_demo PROPERTIES
+set_target_properties(axon_demo PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin"
 )
